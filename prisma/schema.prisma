@@ -1,0 +1,52 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+model DiasporaProfile {
+  id String @id @default(cuid())
+  fullName String
+  country String
+  city String
+  latitude Float
+  longitude Float
+  sector String
+  professionTitle String
+  organization String
+  skills String[]
+  influenceScore Int
+  investmentCapacityScore Int
+  strategicValueIndex Int
+  engagementCategory String
+  sourceType String
+  consentStatus String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([country, city])
+  @@index([sector])
+  @@index([engagementCategory])
+}
+model DiasporaOrganization {
+  id String @id @default(cuid())
+  name String
+  country String
+  city String
+  sectorFocus String
+  contactEmail String?
+  website String?
+  latitude Float
+  longitude Float
+}
+model EngagementProgram {
+  id String @id @default(cuid())
+  title String
+  category String
+  targetSector String
+  targetCountry String
+  description String
+  expectedImpact String
+}
+model AIClassificationLog {
+  id String @id @default(cuid())
+  rawInput String
+  structuredOutput Json
+  confidenceLevel Float
+  createdAt DateTime @default(now())
+}

@@ -1,0 +1,4 @@
+export type Sector="Healthcare"|"Technology"|"Academia"|"Finance"|"Engineering"|"Public Policy"|"Creative Economy"|"Entrepreneurship"|"Other";
+export type EngagementCategory="Investor"|"Skilled Professional"|"Policy Influencer"|"Cultural Ambassador"|"Academic Partner"|"Healthcare Expert"|"Technology Innovator";
+export type DiasporaProfile={id:string;fullName:string;country:string;city:string;latitude:number;longitude:number;sector:Sector;professionTitle:string;organization:string;skills:string[];influenceScore:number;investmentCapacityScore:number;strategicValueIndex:number;engagementCategory:EngagementCategory;sourceType:string;consentStatus:string;createdAt?:Date|string;updatedAt?:Date|string};
+export type EngagementProgram={id:string;title:string;category:EngagementCategory|string;targetSector:string;targetCountry:string;description:string;expectedImpact:string};
