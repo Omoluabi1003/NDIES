@@ -14,13 +14,13 @@ export default async function EnrollmentSuccess({ searchParams }: { searchParams
       <h2 className="mt-5 text-4xl font-semibold">Enrollment confirmation</h2>
       <p className="mt-4 max-w-3xl leading-8 text-slate-300">NDIES records only the data you voluntarily submitted. You can view, correct, or withdraw consent at any time from your personal dashboard.</p>
       <div className="mt-6 grid gap-4 md:grid-cols-3">
-        <div className="rounded-2xl bg-white/5 p-4"><p className="text-sm text-slate-400">Profile reference</p><p className="mt-2 break-all text-[#ffe29b]">{profileId || "Pending"}</p></div>
-        <div className="rounded-2xl bg-white/5 p-4"><p className="text-sm text-slate-400">Email status</p><p className="mt-2 text-[#8fd4ff]">{params.verified ? "Verified" : "Verification email sent when configured"}</p></div>
+        <div className="rounded-2xl bg-white/5 p-4"><p className="text-sm text-slate-400">Profile reference</p><p className="mt-2 break-all text-[#fff2b8]">{profileId || "Pending"}</p></div>
+        <div className="rounded-2xl bg-white/5 p-4"><p className="text-sm text-slate-400">Email status</p><p className="mt-2 text-[#11b86f]">{params.verified ? "Verified" : "Verification email sent when configured"}</p></div>
         <div className="rounded-2xl bg-white/5 p-4"><p className="text-sm text-slate-400">Trust posture</p><p className="mt-2 text-emerald-200">Secure • Encrypted • User-Controlled</p></div>
       </div>
       <div className="mt-8 flex flex-wrap gap-4">
-        <Link href={dashboardHref} className="rounded-full bg-[#d6a73a] px-6 py-3 font-semibold text-[#071426]">View / Edit Profile in Dashboard</Link>
-        <Link href={shareUrl} className="rounded-full border border-[#8fd4ff]/35 px-6 py-3 text-[#8fd4ff]">Copy Shareable Link</Link>
+        <Link href={dashboardHref} className="rounded-full bg-[#f2c94c] px-6 py-3 font-semibold text-[#06291c]">View / Edit Profile in Dashboard</Link>
+        <Link href={shareUrl} className="rounded-full border border-[#11b86f]/35 px-6 py-3 text-[#11b86f]">Copy Shareable Link</Link>
       </div>
     </Card>
   </PageShell>;

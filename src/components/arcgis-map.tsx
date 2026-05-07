@@ -76,9 +76,9 @@ export function ArcGISDiasporaMap() {
         const renderer = new HeatmapRenderer({
           field: "strategicValueIndex",
           colorStops: [
-            { ratio: 0, color: "rgba(8,24,45,0)" },
-            { ratio: 0.45, color: "#8fd4ff" },
-            { ratio: 0.8, color: "#d6a73a" },
+            { ratio: 0, color: "rgba(3,23,15,0)" },
+            { ratio: 0.45, color: "#11b86f" },
+            { ratio: 0.8, color: "#f2c94c" },
             { ratio: 1, color: "#ffffff" },
           ],
           maxDensity: 0.03,
@@ -94,7 +94,7 @@ export function ArcGISDiasporaMap() {
           featureReduction: { type: "cluster", clusterRadius: "80px", popupTemplate: { title: "Diaspora cluster", content: "{cluster_count} profiles represented." } },
         });
         const map = new Map({ basemap: "dark-gray-vector", layers: [featureLayer] });
-        view = new MapView({ container: "arcgis-view", map, center: [5, 20], zoom: 2, background: { color: [7, 20, 38, 1] } });
+        view = new MapView({ container: "arcgis-view", map, center: [5, 20], zoom: 2, background: { color: [6, 41, 28, 1] } });
       } catch (err) {
         setError(err instanceof Error ? err.message : "Unable to initialize ArcGIS map");
       }
@@ -121,7 +121,7 @@ export function ArcGISDiasporaMap() {
       <div>
         <div className="mb-4 flex flex-wrap gap-3">
           {["Talent Density", "Investment Potential", "Healthcare Talent", "Technology Talent", "Academic Influence"].map((x) => (
-            <button key={x} onClick={() => setLayer(x)} className={`rounded-full px-4 py-2 text-sm ${layer === x ? "bg-[#d6a73a] text-[#071426]" : "border border-white/15 text-slate-200"}`}>
+            <button key={x} onClick={() => setLayer(x)} className={`rounded-full px-4 py-2 text-sm ${layer === x ? "bg-[#f2c94c] text-[#06291c]" : "border border-white/15 text-slate-200"}`}>
               {x}
             </button>
           ))}
@@ -148,7 +148,7 @@ export function ArcGISDiasporaMap() {
         </select>
         {selected ? (
           <div className="mt-5">
-            <p className="text-[#8fd4ff]">
+            <p className="text-[#11b86f]">
               {selected.city}, {selected.country}
             </p>
             <p className="mt-3 text-5xl font-semibold">{grouped[`${selected.city}, ${selected.country}`]?.length}</p>
