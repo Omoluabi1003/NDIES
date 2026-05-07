@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const links = [['/dashboard','Dashboard'],['/map','Global Map'],['/profiles','Profiles'],['/ai-lab','AI Lab'],['/engagement','Engagement'],['/scenario','Scenario'],['/governance','Governance']];
+const links = [['/enroll','Enroll'],['/dashboard?role=admin','Dashboard'],['/map','Global Map'],['/profiles','Profiles'],['/ai-lab','AI Lab'],['/engagement','Engagement'],['/scenario','Scenario'],['/governance','Governance']];
 
 export function Nav() {
   return <header className="sticky top-0 z-50 border-b border-white/10 bg-[#061225]/90 backdrop-blur-xl">
@@ -13,7 +13,7 @@ export function Nav() {
         </span>
       </Link>
       <nav className="hidden gap-5 text-sm text-slate-200 lg:flex">{links.map(([href,label]) => <Link className="hover:text-[#8fd4ff]" key={href} href={href}>{label}</Link>)}</nav>
-      <Link href="/dashboard" className="rounded-full border border-[#8fd4ff]/25 px-4 py-2 text-sm text-[#8fd4ff]">Launch MVP</Link>
+      <Link href="/enroll" className="rounded-full border border-[#d6a73a]/40 bg-[#d6a73a]/10 px-4 py-2 text-sm text-[#ffe29b]">Enroll Voluntarily</Link>
     </div>
   </header>;
 }

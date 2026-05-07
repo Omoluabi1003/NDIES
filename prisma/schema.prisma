@@ -8,8 +8,12 @@ datasource db {
 }
 
 model DiasporaProfile {
-  id                      String   @id @default(cuid())
+  id                      String          @id @default(cuid())
   fullName                String
+  dateOfBirth             DateTime?
+  gender                  String?
+  email                   String?         @unique
+  phone                   String?
   country                 String
   city                    String
   latitude                Float
@@ -17,20 +21,51 @@ model DiasporaProfile {
   sector                  String
   professionTitle         String
   organization            String
+  linkedinUrl             String?
+  portfolioUrl            String?
   skills                  String[]
   influenceScore          Int
   investmentCapacityScore Int
   strategicValueIndex     Int
   engagementCategory      String
   sourceType              String
-  consentStatus           String
-  createdAt               DateTime @default(now())
-  updatedAt               DateTime @updatedAt
+  consentStatus           String          @default("PENDING")
+  emailVerifiedAt         DateTime?
+  emailVerificationToken  String?
+  enrollmentSource        String?
+  consentRecords          ConsentRecord[]
+  createdAt               DateTime        @default(now())
+  updatedAt               DateTime        @updatedAt
 
   @@index([country, city])
   @@index([sector])
+  @@index([email])
+  @@index([consentStatus])
   @@index([engagementCategory])
   @@index([latitude, longitude])
+}
+
+model ConsentRecord {
+  id                String          @id @default(cuid())
+  profileId         String
+  profile           DiasporaProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  consentVersion    String
+  consentedAt       DateTime        @default(now())
+  ipAddress         String?
+  userAgent         String?
+  lawfulPurpose     String
+  privacyPolicyUrl  String
+  termsUrl          String
+  consentText       String[]
+  isWithdrawn       Boolean         @default(false)
+  withdrawnAt       DateTime?
+  withdrawalReason  String?
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  @@index([profileId])
+  @@index([consentedAt])
+  @@index([isWithdrawn])
 }
 
 model DiasporaOrganization {

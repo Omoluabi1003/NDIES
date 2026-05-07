@@ -4,6 +4,7 @@ import { Card, Pill } from "@/components/ui";
 const modules = [
   ["Executive Dashboard", "KPI cards, sector filters, readiness scores, and operating briefs for senior leaders.", "/dashboard"],
   ["Global GIS Map", "ArcGIS-ready FeatureLayer patterns for city clusters, heatmap styling, and diaspora density.", "/map"],
+  ["Voluntary Enrollment", "Public opt-in wizard with explicit NDPA 2023 consent, email verification, and withdrawal controls.", "/enroll"],
   ["Profiles Registry", "Consent-aware profile cards with sector scores, source labels, and engagement categories.", "/profiles"],
   ["AI Intelligence Lab", "Structured JSON classification with deterministic fallback when API keys are not configured.", "/ai-lab"],
   ["Scenario Planning", "Country, sector, and mission planning for delegations, investments, and expert councils.", "/scenario"],
@@ -16,18 +17,18 @@ const signals = [
   ["92", "top strategic value", "Highest demo profile index"],
 ];
 
-const workflow = ["Discover diaspora clusters", "Classify strategic value", "Plan missions by sector", "Engage with consent", "Measure national impact"];
+const workflow = ["Invite voluntary enrollment", "Capture explicit NDPA consent", "Verify email ownership", "Map diaspora strengths", "Enable user-controlled engagement"];
 
 export default function Home() {
   return <main className="relative mx-auto max-w-7xl px-5 py-12">
     <section className="grid items-center gap-10 lg:grid-cols-[1.05fr_.95fr]">
       <div>
-        <Pill tone="gold"><span className="status-dot" /> Polished MVP prototype</Pill>
+        <Pill tone="green"><span className="status-dot" /> Public voluntary enrollment now open</Pill>
         <h1 className="mt-6 max-w-5xl text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl">Nigeria Diaspora Intelligence & Engagement System</h1>
-        <p className="mt-6 max-w-3xl text-xl leading-9 text-slate-300">A realistic digital command centre showing how Nigeria can identify, map, understand, and engage global Nigerian talent through GIS, AI-assisted analysis, program workflows, and trust-by-design governance.</p>
+        <p className="mt-6 max-w-3xl text-xl leading-9 text-slate-300">Nigerians in Diaspora can now enroll voluntarily and join the NDIES database through explicit opt-in consent, no scraping, and NDPA 2023 compliant data controls for lawful diaspora engagement and national development.</p>
         <div className="mt-8 flex flex-wrap gap-4">
-          <Link className="rounded-full bg-[#d6a73a] px-6 py-3 font-semibold text-[#071426] shadow-[0_16px_40px_rgba(214,167,58,.22)]" href="/dashboard">Open Executive Dashboard</Link>
-          <Link className="rounded-full border border-[#8fd4ff]/40 px-6 py-3 text-[#8fd4ff]" href="/map">Explore Global Map</Link>
+          <Link className="rounded-full bg-[#d6a73a] px-6 py-3 font-semibold text-[#071426] shadow-[0_16px_40px_rgba(214,167,58,.22)]" href="/enroll">Nigerians in Diaspora – Enroll Voluntarily & Join the NDIES Database</Link>
+          <Link className="rounded-full border border-[#8fd4ff]/40 px-6 py-3 text-[#8fd4ff]" href="/dashboard?role=admin">Open Executive Dashboard</Link>
         </div>
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
           {signals.map(([value,label,meta]) => <div key={label} className="metric-tile rounded-3xl p-4">
