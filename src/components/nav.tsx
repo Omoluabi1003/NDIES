@@ -1,0 +1,3 @@
+import Link from "next/link";
+const links=[['/dashboard','Dashboard'],['/map','Global Map'],['/profiles','Profiles'],['/ai-lab','AI Lab'],['/engagement','Engagement'],['/scenario','Scenario'],['/governance','Governance']];
+export function Nav(){return <header className="sticky top-0 z-50 border-b border-white/10 bg-[#061225]/90 backdrop-blur"><div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4"><Link href="/" className="font-semibold tracking-[.22em] text-[#d6a73a]">NDIES</Link><nav className="hidden gap-5 text-sm text-slate-200 lg:flex">{links.map(([href,label])=><Link className="hover:text-[#8fd4ff]" key={href} href={href}>{label}</Link>)}</nav></div></header>}

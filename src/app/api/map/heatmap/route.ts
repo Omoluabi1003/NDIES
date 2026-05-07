@@ -1,0 +1,3 @@
+import { NextRequest, NextResponse } from "next/server";
+import { getProfiles } from "@/lib/data-service";
+export async function GET(req:NextRequest){ const layer=req.nextUrl.searchParams.get("layer")||"Talent Density"; const profiles=await getProfiles(); const points=profiles.map(p=>({city:p.city,country:p.country,latitude:p.latitude,longitude:p.longitude,weight: layer.includes("Investment")?p.investmentCapacityScore:layer.includes("Healthcare")&&p.sector==="Healthcare"?p.strategicValueIndex:layer.includes("Technology")&&p.sector==="Technology"?p.strategicValueIndex:layer.includes("Academic")&&p.sector==="Academia"?p.influenceScore:p.strategicValueIndex,sector:p.sector})); return NextResponse.json({layer,rendererPattern:"ArcGIS HeatmapRenderer",points}); }
