@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Card, Pill } from "@/components/ui";
 
@@ -23,6 +24,12 @@ export default function Home() {
   return <main className="relative mx-auto max-w-7xl px-5 py-12">
     <section className="grid items-center gap-10 lg:grid-cols-[1.05fr_.95fr]">
       <div>
+        <div className="mb-8 flex flex-wrap items-center gap-5">
+          <div className="relative h-24 w-24 overflow-hidden rounded-[1.75rem] border border-[#f2c94c]/30 bg-[#010805] shadow-[0_22px_60px_rgba(0,0,0,.35)]">
+            <Image src="/assets/brand/ndies-app-icon-square.png" alt="NDIES app icon" fill sizes="96px" className="object-cover" priority />
+          </div>
+          <Image src="/assets/brand/ndies-wordmark-share.png" alt="NDIES Nigeria Diaspora Intelligence & Engagement System wordmark" width={345} height={100} className="h-auto w-full max-w-[345px] rounded-2xl border border-white/10 bg-white/5 object-contain shadow-[0_18px_48px_rgba(0,0,0,.28)]" priority />
+        </div>
         <Pill tone="green"><span className="status-dot" /> Public voluntary enrollment now open</Pill>
         <h1 className="mt-6 max-w-5xl text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl">Nigeria Diaspora Intelligence & Engagement System</h1>
         <p className="mt-6 max-w-3xl text-xl leading-9 text-slate-300">Nigerians in Diaspora can now enroll voluntarily and join the NDIES database through explicit opt-in consent, no scraping, and NDPA 2023 compliant data controls for lawful diaspora engagement and national development.</p>
@@ -41,11 +48,17 @@ export default function Home() {
 
       <div className="glass map-grid relative overflow-hidden rounded-[2rem] p-5">
         <div className="absolute right-8 top-8 h-28 w-28 rounded-full bg-[#f2c94c]/20 blur-3xl" />
-        <div className="rounded-[1.5rem] border border-[#11b86f]/20 bg-[#06291c]/80 p-5">
+        <div className="absolute -bottom-24 -right-20 h-72 w-72 opacity-20">
+          <Image src="/assets/brand/ndies-global-emblem.png" alt="" fill sizes="288px" className="object-contain" />
+        </div>
+        <div className="relative rounded-[1.5rem] border border-[#11b86f]/20 bg-[#06291c]/80 p-5">
           <div className="flex items-start justify-between gap-4">
-            <div>
-              <p className="text-sm text-slate-400">Live mission board</p>
-              <h2 className="mt-2 text-2xl font-semibold">Diaspora readiness overview</h2>
+            <div className="flex items-center gap-4">
+              <Image src="/assets/brand/ndies-orb-logo.png" alt="NDIES orbital logo" width={106} height={79} className="hidden h-auto w-24 rounded-2xl border border-white/10 bg-white/5 object-contain sm:block" />
+              <div>
+                <p className="text-sm text-slate-400">Live mission board</p>
+                <h2 className="mt-2 text-2xl font-semibold">Diaspora readiness overview</h2>
+              </div>
             </div>
             <span className="badge">ArcGIS + AI + CRM</span>
           </div>
