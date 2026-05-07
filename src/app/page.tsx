@@ -1,4 +1,107 @@
 import Link from "next/link";
-import { Card } from "@/components/ui";
-const sections=[['What We Are Building','A full-stack intelligence platform that converts voluntary diaspora participation, public professional signals, GIS layers, and executive analytics into actionable engagement programs.'],['National Problem','Nigeria’s global professional network is powerful but scattered across countries, sectors, associations, and informal channels with limited measurable coordination.'],['Strategic Opportunity','A trusted registry, geospatial view, and AI-assisted segmentation model can identify talent clusters, investment leaders, policy influencers, and sector partners for national development.'],['Core Capabilities','Executive KPIs, global diaspora map, profile intelligence, AI classification, scenario planning, engagement recommendations, and governance controls.']];
-export default function Home(){return <main className="mx-auto max-w-7xl px-5 py-16"><section className="grid items-center gap-10 lg:grid-cols-[1.1fr_.9fr]"><div><p className="mb-4 text-xs font-bold uppercase tracking-[.4em] text-[#d6a73a]">Nigeria Diaspora Intelligence</p><h1 className="text-5xl font-semibold leading-tight md:text-7xl">Nigeria Diaspora Intelligence & Engagement System</h1><p className="mt-6 max-w-3xl text-xl leading-9 text-slate-300">Transforming scattered global Nigerians into a structured, measurable, and strategically engaged national asset.</p><div className="mt-8 flex flex-wrap gap-4"><Link className="rounded-full bg-[#d6a73a] px-6 py-3 font-semibold text-[#071426]" href="/dashboard">Open Executive Dashboard</Link><Link className="rounded-full border border-[#8fd4ff]/40 px-6 py-3 text-[#8fd4ff]" href="/map">Explore Global Map</Link></div></div><div className="glass map-grid rounded-[2rem] p-6"><div className="rounded-[1.5rem] border border-[#8fd4ff]/20 bg-[#071426]/70 p-5"><p className="text-sm text-slate-400">Live MVP modules</p>{['GIS city clusters','AI structured outputs','Scenario planning','Consent-first governance'].map((x,i)=><div key={x} className="mt-4 flex items-center justify-between rounded-2xl bg-white/5 p-4"><span>{x}</span><span className="text-[#d6a73a]">0{i+1}</span></div>)}</div></div></section><section className="mt-14 grid gap-5 md:grid-cols-2">{sections.map(([t,d])=><Card key={t}><h2 className="text-2xl font-semibold text-[#8fd4ff]">{t}</h2><p className="mt-3 leading-7 text-slate-300">{d}</p></Card>)}</section><p className="mt-12 rounded-3xl border border-[#d6a73a]/30 bg-[#d6a73a]/10 p-5 text-[#ffe29b]">Prepared by Paul A.K. Iyogun, Principal Consultant, ETL GIS Consulting LLC</p></main>}
+import { Card, Pill } from "@/components/ui";
+
+const modules = [
+  ["Executive Dashboard", "KPI cards, sector filters, readiness scores, and operating briefs for senior leaders.", "/dashboard"],
+  ["Global GIS Map", "ArcGIS-ready FeatureLayer patterns for city clusters, heatmap styling, and diaspora density.", "/map"],
+  ["Profiles Registry", "Consent-aware profile cards with sector scores, source labels, and engagement categories.", "/profiles"],
+  ["AI Intelligence Lab", "Structured JSON classification with deterministic fallback when API keys are not configured.", "/ai-lab"],
+  ["Scenario Planning", "Country, sector, and mission planning for delegations, investments, and expert councils.", "/scenario"],
+  ["Governance & Trust", "GDPR-aware controls, auditability, human review, and role-based access concepts.", "/governance"],
+];
+
+const signals = [
+  ["15", "demo city records", "Houston · London · Toronto · Dubai"],
+  ["8", "priority sectors", "Health, tech, finance, academia, policy"],
+  ["92", "top strategic value", "Highest demo profile index"],
+];
+
+const workflow = ["Discover diaspora clusters", "Classify strategic value", "Plan missions by sector", "Engage with consent", "Measure national impact"];
+
+export default function Home() {
+  return <main className="relative mx-auto max-w-7xl px-5 py-12">
+    <section className="grid items-center gap-10 lg:grid-cols-[1.05fr_.95fr]">
+      <div>
+        <Pill tone="gold"><span className="status-dot" /> Polished MVP prototype</Pill>
+        <h1 className="mt-6 max-w-5xl text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl">Nigeria Diaspora Intelligence & Engagement System</h1>
+        <p className="mt-6 max-w-3xl text-xl leading-9 text-slate-300">A realistic digital command centre showing how Nigeria can identify, map, understand, and engage global Nigerian talent through GIS, AI-assisted analysis, program workflows, and trust-by-design governance.</p>
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Link className="rounded-full bg-[#d6a73a] px-6 py-3 font-semibold text-[#071426] shadow-[0_16px_40px_rgba(214,167,58,.22)]" href="/dashboard">Open Executive Dashboard</Link>
+          <Link className="rounded-full border border-[#8fd4ff]/40 px-6 py-3 text-[#8fd4ff]" href="/map">Explore Global Map</Link>
+        </div>
+        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          {signals.map(([value,label,meta]) => <div key={label} className="metric-tile rounded-3xl p-4">
+            <p className="text-3xl font-semibold">{value}</p>
+            <p className="mt-1 text-sm text-slate-300">{label}</p>
+            <p className="mt-2 text-xs text-slate-500">{meta}</p>
+          </div>)}
+        </div>
+      </div>
+
+      <div className="glass map-grid relative overflow-hidden rounded-[2rem] p-5">
+        <div className="absolute right-8 top-8 h-28 w-28 rounded-full bg-[#d6a73a]/20 blur-3xl" />
+        <div className="rounded-[1.5rem] border border-[#8fd4ff]/20 bg-[#071426]/80 p-5">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-sm text-slate-400">Live mission board</p>
+              <h2 className="mt-2 text-2xl font-semibold">Diaspora readiness overview</h2>
+            </div>
+            <span className="badge">ArcGIS + AI + CRM</span>
+          </div>
+          <div className="mt-6 grid gap-3">
+            {["North America health and technology mission", "UK academic and policy roundtable", "Gulf investment forum pipeline", "Germany mobility AI partnership"].map((x,i) => <div key={x} className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <div className="flex items-center justify-between gap-3">
+                <span className="font-medium">{x}</span>
+                <span className="text-[#d6a73a]">0{i + 1}</span>
+              </div>
+              <div className="mt-3 h-2 rounded-full bg-white/10"><div className="score-bar" style={{width: `${86 - i * 7}%`}} /></div>
+            </div>)}
+          </div>
+          <div className="mt-6 rounded-3xl border border-[#8fd4ff]/15 bg-[#020814]/70 p-4">
+            <p className="text-xs uppercase tracking-[.25em] text-[#8fd4ff]">Analyst note</p>
+            <p className="mt-2 leading-7 text-slate-300">Prototype data falls back to bundled demo records, so the interface remains presentation-ready without a database or API key.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="mt-16">
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[.35em] text-[#8fd4ff]">Product scope</p>
+          <h2 className="mt-3 text-3xl font-semibold md:text-5xl">Realistic web pages for the NDIES concept</h2>
+        </div>
+        <Pill>Built from the README roadmap and existing MVP git history</Pill>
+      </div>
+      <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {modules.map(([title,description,href]) => <Link href={href} key={title} className="group">
+          <Card className="h-full">
+            <div className="flex items-center justify-between gap-3">
+              <h3 className="text-2xl font-semibold text-[#8fd4ff]">{title}</h3>
+              <span className="rounded-full border border-white/10 px-3 py-1 text-sm text-slate-400 group-hover:border-[#d6a73a]/50 group-hover:text-[#d6a73a]">Open</span>
+            </div>
+            <p className="mt-4 leading-7 text-slate-300">{description}</p>
+          </Card>
+        </Link>)}
+      </div>
+    </section>
+
+    <section className="mt-16 grid gap-6 lg:grid-cols-[.8fr_1.2fr]">
+      <Card>
+        <p className="text-xs font-bold uppercase tracking-[.35em] text-[#d6a73a]">Operating model</p>
+        <h2 className="mt-3 text-3xl font-semibold">From scattered signals to measurable engagement</h2>
+        <p className="mt-4 leading-8 text-slate-300">The dummy product is intentionally designed to feel procurement-ready: every page communicates a real workflow, shows credible data states, and preserves governance language for public-sector confidence.</p>
+      </Card>
+      <Card>
+        <div className="grid gap-3 md:grid-cols-5">
+          {workflow.map((step,index) => <div key={step} className="rounded-2xl bg-white/5 p-4">
+            <p className="text-sm text-[#d6a73a]">0{index + 1}</p>
+            <p className="mt-3 text-sm font-semibold leading-6">{step}</p>
+          </div>)}
+        </div>
+      </Card>
+    </section>
+
+    <p className="mt-12 rounded-3xl border border-[#d6a73a]/30 bg-[#d6a73a]/10 p-5 text-[#ffe29b]">Prepared by Paul A.K. Iyogun, Principal Consultant, ETL GIS Consulting LLC.</p>
+  </main>;
+}
