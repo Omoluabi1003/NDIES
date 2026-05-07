@@ -42,7 +42,7 @@ export function PersonalDashboard({ profile, email }: { profile: DiasporaProfile
       <p className="mt-5 text-sm text-slate-400">Profile editing can be expanded with authenticated sessions. This dashboard already exposes the legal control required for withdrawal of consent.</p>
     </Card>
     <Card>
-      <h3 className="text-2xl font-semibold text-[#d6a73a]">Consent controls</h3>
+      <h3 className="text-2xl font-semibold text-[#f2c94c]">Consent controls</h3>
       <p className="mt-3 leading-7 text-slate-300">NDPA 2023 requires transparent, user-controlled processing. You may withdraw your voluntary opt-in at any time.</p>
       <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-300">
         <p><strong>Profile ID:</strong> {profile.id}</p>
@@ -50,7 +50,7 @@ export function PersonalDashboard({ profile, email }: { profile: DiasporaProfile
         <p className="mt-2"><strong>Status:</strong> {status}</p>
       </div>
       <button disabled={busy || status === "WITHDRAWN"} onClick={withdrawConsent} className="mt-6 w-full rounded-full bg-red-500 px-5 py-3 font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50">{busy ? "Withdrawing..." : "Withdraw Consent"}</button>
-      {message && <p className="mt-4 rounded-2xl border border-[#8fd4ff]/20 bg-[#8fd4ff]/10 p-4 text-sm text-[#c9ecff]">{message}</p>}
+      {message && <p className="mt-4 rounded-2xl border border-[#11b86f]/20 bg-[#11b86f]/10 p-4 text-sm text-[#dfffee]">{message}</p>}
     </Card>
   </div>;
 }

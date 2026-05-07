@@ -27,8 +27,8 @@ export default function Home() {
         <h1 className="mt-6 max-w-5xl text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl">Nigeria Diaspora Intelligence & Engagement System</h1>
         <p className="mt-6 max-w-3xl text-xl leading-9 text-slate-300">Nigerians in Diaspora can now enroll voluntarily and join the NDIES database through explicit opt-in consent, no scraping, and NDPA 2023 compliant data controls for lawful diaspora engagement and national development.</p>
         <div className="mt-8 flex flex-wrap gap-4">
-          <Link className="rounded-full bg-[#d6a73a] px-6 py-3 font-semibold text-[#071426] shadow-[0_16px_40px_rgba(214,167,58,.22)]" href="/enroll">Nigerians in Diaspora – Enroll Voluntarily & Join the NDIES Database</Link>
-          <Link className="rounded-full border border-[#8fd4ff]/40 px-6 py-3 text-[#8fd4ff]" href="/dashboard?role=admin">Open Executive Dashboard</Link>
+          <Link className="rounded-full bg-[#f2c94c] px-6 py-3 font-semibold text-[#06291c] shadow-[0_16px_40px_rgba(242,201,76,.22)]" href="/enroll">Nigerians in Diaspora – Enroll Voluntarily & Join the NDIES Database</Link>
+          <Link className="rounded-full border border-[#11b86f]/40 px-6 py-3 text-[#11b86f]" href="/dashboard?role=admin">Open Executive Dashboard</Link>
         </div>
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
           {signals.map(([value,label,meta]) => <div key={label} className="metric-tile rounded-3xl p-4">
@@ -40,8 +40,8 @@ export default function Home() {
       </div>
 
       <div className="glass map-grid relative overflow-hidden rounded-[2rem] p-5">
-        <div className="absolute right-8 top-8 h-28 w-28 rounded-full bg-[#d6a73a]/20 blur-3xl" />
-        <div className="rounded-[1.5rem] border border-[#8fd4ff]/20 bg-[#071426]/80 p-5">
+        <div className="absolute right-8 top-8 h-28 w-28 rounded-full bg-[#f2c94c]/20 blur-3xl" />
+        <div className="rounded-[1.5rem] border border-[#11b86f]/20 bg-[#06291c]/80 p-5">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-sm text-slate-400">Live mission board</p>
@@ -53,13 +53,13 @@ export default function Home() {
             {["North America health and technology mission", "UK academic and policy roundtable", "Gulf investment forum pipeline", "Germany mobility AI partnership"].map((x,i) => <div key={x} className="rounded-2xl border border-white/10 bg-white/5 p-4">
               <div className="flex items-center justify-between gap-3">
                 <span className="font-medium">{x}</span>
-                <span className="text-[#d6a73a]">0{i + 1}</span>
+                <span className="text-[#f2c94c]">0{i + 1}</span>
               </div>
               <div className="mt-3 h-2 rounded-full bg-white/10"><div className="score-bar" style={{width: `${86 - i * 7}%`}} /></div>
             </div>)}
           </div>
-          <div className="mt-6 rounded-3xl border border-[#8fd4ff]/15 bg-[#020814]/70 p-4">
-            <p className="text-xs uppercase tracking-[.25em] text-[#8fd4ff]">Analyst note</p>
+          <div className="mt-6 rounded-3xl border border-[#11b86f]/15 bg-[#010805]/70 p-4">
+            <p className="text-xs uppercase tracking-[.25em] text-[#11b86f]">Analyst note</p>
             <p className="mt-2 leading-7 text-slate-300">Prototype data falls back to bundled demo records, so the interface remains presentation-ready without a database or API key.</p>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function Home() {
     <section className="mt-16">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[.35em] text-[#8fd4ff]">Product scope</p>
+          <p className="text-xs font-bold uppercase tracking-[.35em] text-[#11b86f]">Product scope</p>
           <h2 className="mt-3 text-3xl font-semibold md:text-5xl">Realistic web pages for the NDIES concept</h2>
         </div>
         <Pill>Built from the README roadmap and existing MVP git history</Pill>
@@ -78,8 +78,8 @@ export default function Home() {
         {modules.map(([title,description,href]) => <Link href={href} key={title} className="group">
           <Card className="h-full">
             <div className="flex items-center justify-between gap-3">
-              <h3 className="text-2xl font-semibold text-[#8fd4ff]">{title}</h3>
-              <span className="rounded-full border border-white/10 px-3 py-1 text-sm text-slate-400 group-hover:border-[#d6a73a]/50 group-hover:text-[#d6a73a]">Open</span>
+              <h3 className="text-2xl font-semibold text-[#11b86f]">{title}</h3>
+              <span className="rounded-full border border-white/10 px-3 py-1 text-sm text-slate-400 group-hover:border-[#f2c94c]/50 group-hover:text-[#f2c94c]">Open</span>
             </div>
             <p className="mt-4 leading-7 text-slate-300">{description}</p>
           </Card>
@@ -89,20 +89,20 @@ export default function Home() {
 
     <section className="mt-16 grid gap-6 lg:grid-cols-[.8fr_1.2fr]">
       <Card>
-        <p className="text-xs font-bold uppercase tracking-[.35em] text-[#d6a73a]">Operating model</p>
+        <p className="text-xs font-bold uppercase tracking-[.35em] text-[#f2c94c]">Operating model</p>
         <h2 className="mt-3 text-3xl font-semibold">From scattered signals to measurable engagement</h2>
         <p className="mt-4 leading-8 text-slate-300">The dummy product is intentionally designed to feel procurement-ready: every page communicates a real workflow, shows credible data states, and preserves governance language for public-sector confidence.</p>
       </Card>
       <Card>
         <div className="grid gap-3 md:grid-cols-5">
           {workflow.map((step,index) => <div key={step} className="rounded-2xl bg-white/5 p-4">
-            <p className="text-sm text-[#d6a73a]">0{index + 1}</p>
+            <p className="text-sm text-[#f2c94c]">0{index + 1}</p>
             <p className="mt-3 text-sm font-semibold leading-6">{step}</p>
           </div>)}
         </div>
       </Card>
     </section>
 
-    <p className="mt-12 rounded-3xl border border-[#d6a73a]/30 bg-[#d6a73a]/10 p-5 text-[#ffe29b]">Prepared by Paul A.K. Iyogun, Principal Consultant, ETL GIS Consulting LLC.</p>
+    <p className="mt-12 rounded-3xl border border-[#f2c94c]/30 bg-[#f2c94c]/10 p-5 text-[#fff2b8]">Prepared by Paul A.K. Iyogun, Principal Consultant, ETL GIS Consulting LLC.</p>
   </main>;
 }

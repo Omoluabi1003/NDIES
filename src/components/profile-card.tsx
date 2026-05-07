@@ -9,11 +9,11 @@ export function ProfileCard({p}:{p:DiasporaProfile}) {
   return <Card className="h-full">
     <div className="flex flex-wrap items-start justify-between gap-3">
       <div className="flex gap-3">
-        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-[#8fd4ff]/25 bg-[#8fd4ff]/10 font-semibold text-[#8fd4ff]">{initials(p.fullName)}</div>
+        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-[#11b86f]/25 bg-[#11b86f]/10 font-semibold text-[#11b86f]">{initials(p.fullName)}</div>
         <div>
           <h3 className="text-xl font-semibold">{p.fullName}</h3>
           <p className="text-sm text-slate-400">{p.professionTitle} · {p.organization}</p>
-          <p className="mt-1 text-sm text-[#8fd4ff]">{p.city}, {p.country} · {p.sector}</p>
+          <p className="mt-1 text-sm text-[#11b86f]">{p.city}, {p.country} · {p.sector}</p>
         </div>
       </div>
       <span className="badge">{p.engagementCategory}</span>

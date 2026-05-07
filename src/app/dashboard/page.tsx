@@ -43,16 +43,16 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
           <select><option>Score range: 70-100</option><option>80-100</option><option>90-100</option></select>
           <select><option>All engagement categories</option><option>Investor</option><option>Technology Innovator</option><option>Healthcare Expert</option></select>
         </div>
-        <h3 className="mt-8 font-semibold text-[#d6a73a]">Sector leaders</h3>
+        <h3 className="mt-8 font-semibold text-[#f2c94c]">Sector leaders</h3>
         {m.topProfessionalSectors.length ? m.topProfessionalSectors.map(s => <div key={s.sector} className="mt-3 flex justify-between rounded-xl bg-white/5 p-3"><span>{s.sector}</span><span>{s.count}</span></div>) : <p className="mt-3 text-sm text-slate-400">No sector records available.</p>}
       </Card>
 
       <Card className="map-grid min-h-[540px]">
         <div className="flex flex-wrap items-center justify-between gap-3"><h2 className="text-2xl font-semibold">Global operational map</h2><span className="badge">ArcGIS-ready FeatureLayer</span></div>
-        <div className="relative mt-6 h-[410px] overflow-hidden rounded-3xl border border-[#8fd4ff]/20 bg-[#08182d]">
+        <div className="relative mt-6 h-[410px] overflow-hidden rounded-3xl border border-[#11b86f]/20 bg-[#03170f]">
           <div className="absolute inset-0 map-grid opacity-70" />
-          <div className="absolute left-6 top-6 rounded-2xl border border-white/10 bg-[#020814]/80 p-4 text-sm text-slate-300"><span className="status-dot mr-2" /> Live database clusters</div>
-          {profiles.length ? profiles.slice(0, 12).map((p,i) => <div key={p.id} className="absolute rounded-full border border-[#d6a73a] bg-[#8fd4ff] shadow-[0_0_30px_rgba(143,212,255,.8)]" style={{left:`${8 + (i * 9) % 80}%`,top:`${18 + (i * 13) % 62}%`,width:10 + p.strategicValueIndex / 7,height:10 + p.strategicValueIndex / 7}} title={`${p.city}, ${p.country}`} />) : <div className="absolute inset-0 grid place-items-center text-sm text-slate-400">No verified geospatial records available.</div>}
+          <div className="absolute left-6 top-6 rounded-2xl border border-white/10 bg-[#010805]/80 p-4 text-sm text-slate-300"><span className="status-dot mr-2" /> Live database clusters</div>
+          {profiles.length ? profiles.slice(0, 12).map((p,i) => <div key={p.id} className="absolute rounded-full border border-[#f2c94c] bg-[#11b86f] shadow-[0_0_30px_rgba(17,184,111,.8)]" style={{left:`${8 + (i * 9) % 80}%`,top:`${18 + (i * 13) % 62}%`,width:10 + p.strategicValueIndex / 7,height:10 + p.strategicValueIndex / 7}} title={`${p.city}, ${p.country}`} />) : <div className="absolute inset-0 grid place-items-center text-sm text-slate-400">No verified geospatial records available.</div>}
         </div>
       </Card>
     </div>
@@ -69,7 +69,7 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
         <h2 className="text-2xl font-semibold">Priority engagement queue</h2>
         <div className="mt-5 space-y-3">{profiles.length ? profiles.slice().sort((a,b) => b.strategicValueIndex - a.strategicValueIndex).slice(0, 5).map((p,index) => <div key={p.id} className="flex items-center justify-between gap-4 rounded-2xl bg-white/5 p-4">
           <div><p className="font-semibold">0{index + 1}. {p.fullName}</p><p className="text-sm text-slate-400">{p.city}, {p.country} · {p.engagementCategory}</p></div>
-          <span className="text-[#d6a73a]">{p.strategicValueIndex}</span>
+          <span className="text-[#f2c94c]">{p.strategicValueIndex}</span>
         </div>) : <p className="text-sm text-slate-400">No priority profiles available.</p>}</div>
       </Card>
     </section>
