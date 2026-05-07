@@ -11,6 +11,7 @@ function withoutId<T extends { id: string }>(record: T) {
 
 async function main() {
   await prisma.aIClassificationLog.deleteMany();
+  await prisma.consentRecord.deleteMany();
   await prisma.engagementProgram.deleteMany();
   await prisma.diasporaOrganization.deleteMany();
   await prisma.diasporaProfile.deleteMany();

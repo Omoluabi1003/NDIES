@@ -1,10 +1,19 @@
-import { getProfiles, metricsFor } from "@/lib/data-service";
+import { getProfileById, getProfiles, metricsFor } from "@/lib/data-service";
 import { Card, Kpi, PageShell, Pill } from "@/components/ui";
 import { ProfileCard } from "@/components/profile-card";
+import { PersonalDashboard } from "@/components/enrollment/personal-dashboard";
 
 export const dynamic = "force-dynamic";
 
-export default async function Dashboard() {
+export default async function Dashboard({ searchParams }: { searchParams: Promise<{ profileId?: string; email?: string; role?: string }> }) {
+  const params = await searchParams;
+  if (params.profileId && params.role !== "admin") {
+    const profile = await getProfileById(params.profileId);
+    return <PageShell eyebrow="Personal dashboard" title="View, update, and control your NDIES profile" subtitle="This self-service area keeps enrollment user-controlled: review your voluntary profile data and withdraw consent at any time.">
+      {profile ? <PersonalDashboard profile={profile} email={params.email} /> : <Card><h2 className="text-2xl font-semibold">Profile not found</h2><p className="mt-3 text-slate-300">Check your enrollment confirmation link or contact NDIES support.</p></Card>}
+    </PageShell>;
+  }
+
   const profiles = await getProfiles();
   const m = metricsFor(profiles);
   const countries = [...new Set(profiles.map(p => p.country))];
