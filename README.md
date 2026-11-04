@@ -1,5 +1,19 @@
 # NDIES — Nigeria Diaspora Intelligence & Engagement System
 
+## Project at a glance
+
+**Category:** Diaspora intelligence and engagement GIS platform  
+**What it does:** Support geospatial exploration, profiles, dashboards and engagement planning for Nigeria's diaspora  
+**Audience:** Users, technical contributors, project evaluators and potential partners  
+**Repository:** https://github.com/Omoluabi1003/NDIES
+
+**Current implementation boundary:** Production requires configured database and AI services; development-only demo data must not be mistaken for live diaspora records.
+
+This README documents the product direction and its implementation details. Planned or experimental features should not be interpreted as production-ready without verification in the code and deployment.
+
+---
+
+
 NDIES is a full-stack MVP for identifying, mapping, understanding, and engaging Nigerians in the diaspora through GIS, AI-assisted intelligence, PostgreSQL-backed data infrastructure, and executive dashboards.
 
 ## Product scope
